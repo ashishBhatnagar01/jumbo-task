@@ -1,0 +1,19 @@
+version: '3.5'
+
+services:
+  postgres:
+    container_name: jumbo-postgres
+    image: postgres:14
+    env_file:
+      - .env
+    environment:
+      - POSTGRES_USER:${POSTGRES_USER}
+      - POSTGRES_PASSWORD:${POSTGRES_PASSWORD}
+      - PGDATA:/data/postgres
+    volumes:
+      - postgres-db:/data/postgres
+    ports:
+      - "5002:5432"
+volumes:
+  postgres-db:
+    driver: local
