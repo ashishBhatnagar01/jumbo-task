@@ -10,6 +10,7 @@ export class GlobalExceptionHandler implements ExceptionFilter {
   catch(exception: any, host: ArgumentsHost): any {
     const ctx = host.switchToHttp();
     const response = ctx.getResponse();
+    console.log(exception)
     const status =
       exception instanceof HttpException ? exception.getStatus() : 500;
     let message = ['Ooops! Something went wrong!!'];

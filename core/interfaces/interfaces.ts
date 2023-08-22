@@ -25,3 +25,10 @@ export interface WatchListInterface {
     video_url: string;
   };
 }
+
+export interface PaginationInterface {
+  items: any;
+  page: number;
+  per_page: number;
+  total_pages: number;
+}

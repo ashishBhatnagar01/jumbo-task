@@ -9,4 +9,5 @@ export class MessageService {
   SUCCESS ='Success!';
   ALREADY_ADDED= 'This video is already added to watch later list!'
   UNAUTHORIZED = 'Unauthorized!';
+  NOT_FOUND = 'Not found!';
 }

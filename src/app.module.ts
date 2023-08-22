@@ -8,6 +8,7 @@ import { CronService } from './cron/cron.service';
 import { HttpModule } from '@nestjs/axios';
 import { CronModule } from './cron/cron.module';
 import { WatchListModule } from './watch-list/watch-list.module';
+import { VideosModule } from './videos/videos.module';
 
 @Module({
   imports: [
@@ -16,6 +17,7 @@ import { WatchListModule } from './watch-list/watch-list.module';
     HttpModule,
     CronModule,
     WatchListModule,
+    VideosModule,
   ],
   controllers: [AppController],
   providers: [AppService, MessageService],
