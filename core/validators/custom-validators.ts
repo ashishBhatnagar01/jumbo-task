@@ -46,3 +46,22 @@ export class IsExist implements ValidatorConstraintInterface {
     return messageService.EMAIL_NOT_REGISTERED;
   }
 }
+
+@ValidatorConstraint({ name: 'IsValid', async: true })
+export class IsValid implements ValidatorConstraintInterface {
+  async validate(
+    value: any,
+    validationArguments?: ValidationArguments,
+  ): Promise<boolean> {
+    const isValidId = await prisma.videos.findFirst({
+      where: {
+        id: value,
+      },
+    });
+    if (!isValidId) return false;
+    return true;
+  }
+  defaultMessage(validationArguments?: ValidationArguments): string {
+    return messageService.INVALID_VIDEO_ID;
+  }
+}

@@ -12,11 +12,21 @@ const app_controller_1 = require("./app.controller");
 const app_service_1 = require("./app.service");
 const auth_module_1 = require("./auth/auth.module");
 const message_service_1 = require("../services/message.service");
+const schedule_1 = require("@nestjs/schedule");
+const axios_1 = require("@nestjs/axios");
+const cron_module_1 = require("./cron/cron.module");
+const watch_list_module_1 = require("./watch-list/watch-list.module");
 let AppModule = exports.AppModule = class AppModule {
 };
 exports.AppModule = AppModule = __decorate([
     (0, common_1.Module)({
-        imports: [auth_module_1.AuthModule],
+        imports: [
+            auth_module_1.AuthModule,
+            schedule_1.ScheduleModule.forRoot(),
+            axios_1.HttpModule,
+            cron_module_1.CronModule,
+            watch_list_module_1.WatchListModule,
+        ],
         controllers: [app_controller_1.AppController],
         providers: [app_service_1.AppService, message_service_1.MessageService],
     })
