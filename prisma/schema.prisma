@@ -12,8 +12,17 @@ datasource db {
 
 model users {
   id         String @id @default(uuid())
-  email      String
+  email      String @unique
   password   String
   first_name String
   last_name  String
+}
+
+model videos {
+  id            String   @id @default(uuid())
+  title         String
+  description   String
+  published_at  DateTime
+  thumbnail_url String
+  video_url     String
 }

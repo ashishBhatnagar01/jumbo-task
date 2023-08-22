@@ -13,15 +13,15 @@ let GlobalExceptionHandler = exports.GlobalExceptionHandler = class GlobalExcept
         const ctx = host.switchToHttp();
         const response = ctx.getResponse();
         const status = exception instanceof common_1.HttpException ? exception.getStatus() : 500;
-        let message = 'Ooops! Something went wrong!!';
+        let message = ['Ooops! Something went wrong!!'];
         if (exception instanceof common_1.HttpException) {
             const httpException = exception.getResponse();
             message = httpException['message']
                 ? httpException['message']
-                : exception.message;
+                : [exception.message];
         }
         else if (exception instanceof TypeError) {
-            message = exception.message;
+            message = [exception.message];
         }
         response.status(status).json({
             status: status,

@@ -1,4 +1,9 @@
-import { ArgumentsHost, Catch, ExceptionFilter, HttpException } from "@nestjs/common";
+import {
+  ArgumentsHost,
+  Catch,
+  ExceptionFilter,
+  HttpException,
+} from '@nestjs/common';
 
 @Catch()
 export class GlobalExceptionHandler implements ExceptionFilter {
@@ -7,14 +12,14 @@ export class GlobalExceptionHandler implements ExceptionFilter {
     const response = ctx.getResponse();
     const status =
       exception instanceof HttpException ? exception.getStatus() : 500;
-    let message = 'Ooops! Something went wrong!!';
+    let message = ['Ooops! Something went wrong!!'];
     if (exception instanceof HttpException) {
       const httpException = exception.getResponse();
       message = httpException['message']
         ? httpException['message']
-        : exception.message;
+        : [exception.message];
     } else if (exception instanceof TypeError) {
-      message = exception.message;
+      message = [exception.message];
     }
     response.status(status).json({
       status: status,
