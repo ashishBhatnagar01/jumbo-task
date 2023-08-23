@@ -2,12 +2,14 @@ FROM node:16
 
 WORKDIR /app/src/
 
-COPY . .
+COPY package*.json ./
 
 RUN yarn install
 
+RUN yarn build
+
 RUN npx prisma generate
 
-EXPOSE 8080
+EXPOSE 8082
 
-CMD ["node","dist/src/main.js"]
+CMD ["node","dist","src/main.js"]

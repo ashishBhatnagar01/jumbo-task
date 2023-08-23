@@ -1,19 +1,14 @@
 version: '3.5'
 
 services:
-  postgres:
-    container_name: jumbo-postgres
-    image: postgres:14
-    env_file:
-      - .env
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: nest-app-container
     environment:
-      - POSTGRES_USER:${POSTGRES_USER}
-      - POSTGRES_PASSWORD:${POSTGRES_PASSWORD}
-      - PGDATA:/data/postgres
-    volumes:
-      - postgres-db:/data/postgres
+      - PORT=${PORT}
     ports:
-      - "5002:5432"
-volumes:
-  postgres-db:
-    driver: local
+      - '8081:8082'
+    volumes:
+      - ./:/app/src

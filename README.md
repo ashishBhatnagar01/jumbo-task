@@ -32,7 +32,7 @@
 $ yarn install
 ```
 
-## Running the app
+## Running the app (Classical method)
 
 ```bash
 # development
@@ -45,18 +45,24 @@ $ yarn run start:dev
 $ yarn run start:prod
 ```
 
-## Test
+## Running the app (Docker-Compose)
 
 ```bash
-# unit tests
-$ yarn run test
+# For normal mode, run
+$ docker-compose up
 
-# e2e tests
-$ yarn run test:e2e
+# For detached mode, run
+$ docker-compose up -d
 
-# test coverage
-$ yarn run test:cov
 ```
+
+##### Wohoo! You are all set to access the endpoints after adding .env file
+```bash
+$ Base_Url = http://localhost:8082
+```
+
+#### For, enviroment variables used in the program, Plese refer to **.env.example** file in the root directory.
+
 
 ## Support
 
