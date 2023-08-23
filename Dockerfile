@@ -14,4 +14,4 @@ RUN npm run build
 
 EXPOSE 8082
 
-CMD ["npm","run","start:dev"]
+CMD ["node","dist","src/main.js"]
