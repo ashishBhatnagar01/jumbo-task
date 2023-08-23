@@ -8,9 +8,9 @@ RUN yarn install
 
 COPY . .
 
-RUN yarn build
-
 RUN npx prisma generate
+
+RUN yarn build
 
 EXPOSE 8082
 
