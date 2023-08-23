@@ -2,9 +2,11 @@ FROM node:16
 
 WORKDIR /app/src/
 
-COPY package*.json
+COPY package.json ./
 
 RUN yarn install
+
+COPY . .
 
 RUN yarn build
 
