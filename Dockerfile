@@ -14,4 +14,4 @@ RUN yarn build
 
 EXPOSE 8082
 
-CMD ["node","dist","src/main.js"]
+CMD ["yarn","start:dev"]
