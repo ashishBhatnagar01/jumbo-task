@@ -2,16 +2,16 @@ FROM node:16
 
 WORKDIR /app/src/
 
-COPY package.json ./
+ADD package.json /app/src/package.json
 
-RUN yarn install
+RUN npm install
 
-COPY . .
+ADD . /app/src/
 
 RUN npx prisma generate
 
-RUN yarn build
+RUN npm run build
 
 EXPOSE 8082
 
-CMD ["yarn","start:dev"]
+CMD ["npm","run","start:dev"]
